@@ -1,10 +1,11 @@
 import config
 
-import sys, pickle, spotipy
+import sys, pickle, spotipy, random
 import spotipy.util as util
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+from sklearn.utils import shuffle
 from enum import Enum
 
 class Emotion(Enum):
@@ -114,19 +115,22 @@ def learn_emotion_model(happy_pickle, sad_pickle, excited_pickle, chill_pickle):
 
 
 def get_songs_from_ids(sp, ids):
-    #results = spotify.search(q='artist:' + name, type='artist')
-    results = sp.track(ids[0])
-    return results['artists'][0]['name'], results['name']
+    all_songs = []
+    for i in xrange(len(ids)):
+        results = sp.track(ids[i])
+        all_songs.append((results['artists'][0]['name'], results['name']))
+    return all_songs
 
 
 def get_songIDs_for_emotion(emotion):
     simple_all_songs_df = get_feats_df('song_features/all_song_feats.pickle')
     orig_all_songs = pd.read_pickle('song_features/all_song_feats.pickle')
-
+    simple_all_songs_df = shuffle(simple_all_songs_df)
+    orig_all_songs = shuffle(orig_all_songs)
 
     love_hate_model = pickle.load(open('love_hate_model.pickle', 'rb'))
     emotion_model = pickle.load(open('emotion_model.pickle', 'rb'))
-    NUM_SONGS = 10
+    NUM_SONGS = 20
     ids = []
     emotion_idx = Emotion[emotion].value
     for index, row in simple_all_songs_df.iterrows():
@@ -139,18 +143,28 @@ def get_songIDs_for_emotion(emotion):
         if pred_idx == emotion_idx:
             # see if we like it 
             if love_hate_model.predict(row) == 1:
-                song_id = orig_all_songs.get_value(index, 'id')
+                tempo = simple_all_songs_df.iloc[index]['tempo']
+                print 'READ ME ', tempo
+                acousticness = simple_all_songs_df.iloc[index]['acousticness']
+                fitted_row = orig_all_songs.loc[(orig_all_songs['tempo'] == tempo) & (orig_all_songs['acousticness'] == acousticness)]
+                song_id = fitted_row['id'].values[0]
                 ids.append(song_id)
 
         if len(ids) >= NUM_SONGS:
             break
-    
     return ids
+
+def print_playlist(emotion, playlist):
+    print 'You said you are feeling ', emotion, '.'
+    print 'Here is a list of songs for you to listen to!'
+    for artist, song_name in playlist:
+        print song_name, ' by ', artist
 
 sp = setup_spotipy()
 emotion = sys.argv[-1] # HAPPY, SAD, EXCITED, CHILL
 ids = get_songIDs_for_emotion(emotion.upper())
 playlist = get_songs_from_ids(sp, ids)
+print_playlist(emotion, playlist)
 
 # for all songs
 #get_feats_for_song_in_playlist(sp, config.SPOTIFY_USERNAME, config.ALL_SONGS_PLAYLIST_ID, 'all_song_feats.pickle')
