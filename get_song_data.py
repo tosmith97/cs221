@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.utils import shuffle
 from enum import Enum
+from util import get_feats_df
 
 from keras.preprocessing import sequence
 from keras.models import Sequential, load_model
@@ -71,11 +72,6 @@ def get_feats_for_song_in_playlist(sp, spotify_username, playlist_id, outfile_pa
     print 'stored dataframe in pickle!'
 
 
-def get_feats_df(pickle):
-    df = pd.read_pickle(pickle)
-    df = df[['acousticness','instrumentalness', 'key', 'danceability', 'energy', 'instrumentalness', 'key', 'liveness', 'loudness', 'mode', 'speechiness', 'tempo', 'time_signature', 'valence']]
-    return df
-
 def learn_love_hate_model(love_pickle, hate_pickle):
     love_train = get_feats_df(love_pickle)
     love_train['Love'] = 1
@@ -118,49 +114,6 @@ def learn_emotion_model(happy_pickle, sad_pickle, excited_pickle, chill_pickle):
     with open('emotion_model.pickle', 'wb') as f:
         pickle.dump(lr, f)
     print lr.score(x, y)
-
-
-def train_rnn_models():
-    batch_size = 32
-
-    love_train = get_feats_df('song_features/love_feats.pickle')
-    love_train['Love'] = 1
-
-    hate_train = get_feats_df('song_features/hate_feats.pickle')
-    hate_train['Love'] = 0
-
-    tot_train_df = pd.concat([love_train, hate_train])
-
-    x = tot_train_df.drop('Love', axis=1)
-    y = tot_train_df[['Love']]
-    print len(x.columns)
-    print('Build model...')
-    model = Sequential()
-    model.add(Dense(256, activation='relu', input_dim=14))
-    model.add(Dropout(0.5))
-    model.add(Dense(64, activation='relu', input_dim=14))
-#('Test score:', 0.4748)
-#('Test accuracy:', 0.78)
-
-    #model.add(LSTM(128, dropout=0.2, recurrent_dropout=0.2, input_dim=13))
-    model.add(Dense(1, activation='sigmoid'))
-
-    # try using different optimizers and different optimizer configs
-    model.compile(loss='binary_crossentropy',
-                optimizer='rmsprop',
-                metrics=['accuracy'])
-
-    print('Train...')
-    model.fit(x.values, y.values.ravel(),
-            batch_size=batch_size,
-            epochs=15)
-    score, acc = model.evaluate(x.values, y.values.ravel(),
-                                batch_size=batch_size)
-
-    model.save('hate_love_nn.model')
-    print('Test score:', score)
-    print('Test accuracy:', acc)
-
 
 
 def get_songs_from_ids(sp, ids):
