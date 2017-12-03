@@ -8,11 +8,17 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.utils import shuffle
 from enum import Enum
 
+from keras.preprocessing import sequence
+from keras.models import Sequential, load_model
+from keras.layers import Dense, Dropout
+from keras.layers import LSTM
+
 class Emotion(Enum):
     HAPPY = 0
     SAD = 1
     EXCITED = 2
     CHILL = 3
+
 
 def setup_spotipy():
     scopes = "user-library-read user-top-read playlist-read-private playlist-read-collaborative"
@@ -114,6 +120,49 @@ def learn_emotion_model(happy_pickle, sad_pickle, excited_pickle, chill_pickle):
     print lr.score(x, y)
 
 
+def train_rnn_models():
+    batch_size = 32
+
+    love_train = get_feats_df('song_features/love_feats.pickle')
+    love_train['Love'] = 1
+
+    hate_train = get_feats_df('song_features/hate_feats.pickle')
+    hate_train['Love'] = 0
+
+    tot_train_df = pd.concat([love_train, hate_train])
+
+    x = tot_train_df.drop('Love', axis=1)
+    y = tot_train_df[['Love']]
+    print len(x.columns)
+    print('Build model...')
+    model = Sequential()
+    model.add(Dense(256, activation='relu', input_dim=14))
+    model.add(Dropout(0.5))
+    model.add(Dense(64, activation='relu', input_dim=14))
+#('Test score:', 0.4748)
+#('Test accuracy:', 0.78)
+
+    #model.add(LSTM(128, dropout=0.2, recurrent_dropout=0.2, input_dim=13))
+    model.add(Dense(1, activation='sigmoid'))
+
+    # try using different optimizers and different optimizer configs
+    model.compile(loss='binary_crossentropy',
+                optimizer='rmsprop',
+                metrics=['accuracy'])
+
+    print('Train...')
+    model.fit(x.values, y.values.ravel(),
+            batch_size=batch_size,
+            epochs=15)
+    score, acc = model.evaluate(x.values, y.values.ravel(),
+                                batch_size=batch_size)
+
+    model.save('hate_love_nn.model')
+    print('Test score:', score)
+    print('Test accuracy:', acc)
+
+
+
 def get_songs_from_ids(sp, ids):
     all_songs = []
     for i in xrange(len(ids)):
@@ -129,8 +178,10 @@ def get_songIDs_for_emotion(emotion):
     orig_all_songs = shuffle(orig_all_songs)
 
     love_hate_model = pickle.load(open('love_hate_model.pickle', 'rb'))
+    # NN - love_hate_model = load_model('hate_love_nn.model')
+    
     emotion_model = pickle.load(open('emotion_model.pickle', 'rb'))
-    NUM_SONGS = 20
+    NUM_SONGS = 5
     ids = []
     emotion_idx = Emotion[emotion].value
     for index, row in simple_all_songs_df.iterrows():
@@ -140,14 +191,16 @@ def get_songIDs_for_emotion(emotion):
         # this might break in future
         emot_prob = emot_prob.reshape((-1,1))
         pred_idx = np.argmax(emot_prob) 
-        if pred_idx == emotion_idx:
+        if pred_idx == emotion_idx and max(emot_prob) > 0.5:
+            # print emot_prob
             # see if we like it 
+            #print love_hate_model.predict(np.reshape(row.values, (1 ,14)))
             if love_hate_model.predict(row) == 1:
                 tempo = simple_all_songs_df.iloc[index]['tempo']
-                print 'READ ME ', tempo
                 acousticness = simple_all_songs_df.iloc[index]['acousticness']
                 fitted_row = orig_all_songs.loc[(orig_all_songs['tempo'] == tempo) & (orig_all_songs['acousticness'] == acousticness)]
                 song_id = fitted_row['id'].values[0]
+                # song_id = orig_all_songs.iloc[fitted_row]['id']
                 ids.append(song_id)
 
         if len(ids) >= NUM_SONGS:
@@ -155,20 +208,22 @@ def get_songIDs_for_emotion(emotion):
     return ids
 
 def print_playlist(emotion, playlist):
-    print 'You said you are feeling ', emotion, '.'
+    print 'You said you are feeling', emotion
     print 'Here is a list of songs for you to listen to!'
     for artist, song_name in playlist:
         print song_name, ' by ', artist
 
 sp = setup_spotipy()
+
+#train_rnn_models()
+
 emotion = sys.argv[-1] # HAPPY, SAD, EXCITED, CHILL
 ids = get_songIDs_for_emotion(emotion.upper())
 playlist = get_songs_from_ids(sp, ids)
-print_playlist(emotion, playlist)
+print_playlist(emotion, playlist)# for all songs
 
-# for all songs
+
 #get_feats_for_song_in_playlist(sp, config.SPOTIFY_USERNAME, config.ALL_SONGS_PLAYLIST_ID, 'all_song_feats.pickle')
-#get_feats_for_song_in_playlist(sp, config.SPOTIFY_USERNAME, '6HW9zTyainHKIyTNYHY985', 'all_songs1_feats.pickle')
 
 # each emotion
 #get_feats_for_song_in_playlist(sp, config.SPOTIFY_USERNAME, config.HAPPY_PLAYLIST_ID, 'happy_feats.pickle')
