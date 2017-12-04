@@ -86,8 +86,8 @@ def learn_love_hate_model(love_pickle, hate_pickle):
 
     lr = LogisticRegression()
     lr.fit(x, y.values.ravel())
-    with open('love_hate_model.pickle', 'wb') as f:
-        pickle.dump(lr, f)
+    # with open('love_hate_model.pickle', 'wb') as f:
+    #     pickle.dump(lr, f)
     print lr.score(x, y)
 
 
@@ -111,8 +111,8 @@ def learn_emotion_model(happy_pickle, sad_pickle, excited_pickle, chill_pickle):
 
     lr = LogisticRegression()
     lr.fit(x, y.values.ravel())
-    with open('emotion_model.pickle', 'wb') as f:
-        pickle.dump(lr, f)
+    # with open('emotion_model.pickle', 'wb') as f:
+    #     pickle.dump(lr, f)
     print lr.score(x, y)
 
 
@@ -125,8 +125,8 @@ def get_songs_from_ids(sp, ids):
 
 
 def get_songIDs_for_emotion(emotion):
-    simple_all_songs_df = get_feats_df('song_features/all_song_feats.pickle')
-    orig_all_songs = pd.read_pickle('song_features/all_song_feats.pickle')
+    simple_all_songs_df = get_feats_df('data/song_features/all_song_feats.pickle')
+    orig_all_songs = pd.read_pickle('data/song_features/all_song_feats.pickle')
     simple_all_songs_df = shuffle(simple_all_songs_df)
     orig_all_songs = shuffle(orig_all_songs)
 
@@ -166,14 +166,16 @@ def print_playlist(emotion, playlist):
     for artist, song_name in playlist:
         print song_name, ' by ', artist
 
+def get_playlist():
+    emotion = sys.argv[-1] # HAPPY, SAD, EXCITED, CHILL
+    ids = get_songIDs_for_emotion(emotion.upper())
+    playlist = get_songs_from_ids(sp, ids)
+    print_playlist(emotion, playlist)# for all songs
+
+
 sp = setup_spotipy()
 
 #train_rnn_models()
-
-emotion = sys.argv[-1] # HAPPY, SAD, EXCITED, CHILL
-ids = get_songIDs_for_emotion(emotion.upper())
-playlist = get_songs_from_ids(sp, ids)
-print_playlist(emotion, playlist)# for all songs
 
 
 #get_feats_for_song_in_playlist(sp, config.SPOTIFY_USERNAME, config.ALL_SONGS_PLAYLIST_ID, 'all_song_feats.pickle')
@@ -186,6 +188,6 @@ print_playlist(emotion, playlist)# for all songs
 # get_feats_for_song_in_playlist(sp, '123640263', config.LIKE_PLAYLIST_ID, 'like_feats.pickle')
 # get_feats_for_song_in_playlist(sp, '123640263', config.DISLIKE_PLAYLIST_ID, 'hate_feats.pickle')
 
-# learn_love_hate_model('love_feats.pickle', 'hate_feats.pickle')
-# learn_emotion_model('song_features/happy_feats.pickle', 'song_features/sad_feats.pickle', 'song_features/excited_feats.pickle', 'song_features/chill_feats.pickle')
+learn_love_hate_model('data/song_features/love_feats.pickle', 'data/song_features/hate_feats.pickle')
+learn_emotion_model('data/song_features/happy_feats.pickle', 'data/song_features/sad_feats.pickle', 'data/song_features/excited_feats.pickle', 'data/song_features/chill_feats.pickle')
 
