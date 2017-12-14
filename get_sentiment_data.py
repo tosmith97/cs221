@@ -1,39 +1,46 @@
 from nltk.corpus import wordnet as wn
+import pandas as pd
 from collections import defaultdict
 import pickle
 
-emotions = ['happy', 'content', 'cheery', 'untroubled', 'delighted', 'pleased', 
-            'sad', 'unhappy', 'sorrowful', 'miserable', 'awful', 'melancholy' 
-            'excited', 'thrilled', 'electrified', 'aroused', 'stimulated'
-            'relaxed']
+happy = ['happy', 'content', 'cheery', 'untroubled', 'delighted', 'pleased', 'glad', 'jolly', 'cheerful', 'merry', 'ecstatic', 'upbeat', 'lively']
+sad = ['sad', 'unhappy', 'sorrowful', 'miserable', 'awful', 'melancholy', 'mournful', 'dismal']
+excited = ['excited', 'thrilled', 'electrified', 'aroused', 'stimulated', 'animated', 'delighted']
+relaxed = ['relaxed', 'serene', 'casual', 'laid-back', 'calm', 'tranquil', 'satisfied', 'cozy']
 
-synsets = defaultdict(list)
-emotion_sentences = defaultdict(list)
+def get_emotion_sentences(words, emotion_sentences):
+    synsets = defaultdict(list)
+    key_word = words[0]
+    for w in words:
+        synsets[w] = wn.synsets(w)
 
-for e in emotions:
-    synsets[e] = wn.synsets(e)
-
-for emot, syn in synsets.iteritems():
-    for s in syn:
-        examples = wn.synset(s._name).examples()
-        for e in examples:
-            emotion_sentences[emot].append(e)
-        
-        hypernyms = wn.synset(s._name).hypernyms()  
-        for h in hypernyms:
-            h_examples = wn.synset(h._name).examples()
-            for e in h_examples:
-                emotion_sentences[emot].append(e)
-
-tot = 0
-for e in emotion_sentences:
-    tot += len(emotion_sentences[e])
-print tot    
-with open('emotion_sentences_dict.pickle', 'wb') as f:
-        pickle.dump(emotion_sentences, f)
+    for emot, syn in synsets.iteritems():
+        for s in syn:
+            examples = wn.synset(s._name).examples()
+            for e in examples:
+                emotion_sentences[key_word].append(e)
+            
+            hypernyms = wn.synset(s._name).hypernyms()  
+            for h in hypernyms:
+                h_examples = wn.synset(h._name).examples()
+                for e in h_examples:
+                    emotion_sentences[key_word].append(e)
 
 
-# other strats:
-# take input string, tokenize and remove stop words, then do comparison metric between every word and the 4 emotion words,assigning e word a weight
+def main():
+    emotion_sentences = defaultdict(list)
+    emotions = [happy, sad, excited, relaxed]
+    dfs = []
 
-# hand-label more sentences then use regression, nn, etc
+    for e in emotions:
+        get_emotion_sentences(e, emotion_sentences)
+
+    with open('data/sentiment_tagged_sentences.txt', 'w') as f:
+        for e in emotion_sentences:
+            for s in emotion_sentences[e]:
+                f.write('%s,%s\n' % (e,s))
+
+# main()
+df = pd.read_csv('data/sentiment_tagged_sentences.txt', sep=",", header=None)
+df.columns = ['Sentiment', 'Text']
+df.to_csv('data/sentiment_tagged_sentences.csv', index=False)

@@ -1,0 +1,435 @@
+relaxed,spoke in a calm voice
+relaxed,remained calm throughout the uproar
+relaxed,he remained serene in the midst of turbulence
+relaxed,a serene expression on her face
+relaxed,she became more tranquil
+relaxed,tranquil life in the country
+relaxed,serene skies and a bright blue sea
+relaxed,a cozy nook near the fire
+relaxed,snug in bed
+relaxed,a snug little apartment
+relaxed,had a cozy chat
+relaxed,a relaxed informal manner
+relaxed,an intimate cocktail lounge
+relaxed,the small room was cozy and intimate
+relaxed,a cozy arrangement with the police
+relaxed,He relaxed in the hot tub
+relaxed,Let's all relax after a hard day's work
+relaxed,We turned from Socialism to Capitalism
+relaxed,The people turned against the President when he stole the election
+relaxed,relax the tension on the rope
+relaxed,loosen the tension on a rope
+relaxed,The noose loosened
+relaxed,the rope relaxed
+relaxed,The prisoner's resistance weakened after seven days
+relaxed,A hot bath always relaxes me
+relaxed,the medicine affects my heart rate
+relaxed,our new colleague relaxed when he saw that we were a friendly group
+relaxed,You should act like an adult
+relaxed,Don't behave like a fool
+relaxed,What makes her do this way?
+relaxed,The dog acts ferocious but he is really afraid of people
+relaxed,The government relaxed the curfew after most of the rebels were caught
+relaxed,The advent of the automobile may have altered the growth pattern of the city
+relaxed,The discussion has changed my thinking about the issue
+relaxed,The rules relaxed after the new director arrived
+relaxed,She changed completely as she grew older
+relaxed,The weather changed last night
+relaxed,He slackened his pace as he got tired
+relaxed,Don't relax your efforts now
+relaxed,He decreased his staff
+relaxed,gave the impression of being quite relaxed
+relaxed,a relaxed and informal discussion
+relaxed,Does this paper meet the requirements for the degree?
+relaxed,The hostess provided lunch for all the guests
+relaxed,a satisfied customer
+relaxed,his thirst quenched he was able to continue
+relaxed,he accepted their problems with composure and she with equanimity
+relaxed,he has a happy disposition
+relaxed,trees bent under the fierce winds
+relaxed,when there is no wind row
+relaxed,the radioactivity was being swept upwards by the air current and out into the atmosphere
+relaxed,quiet the dragons of worry and fear
+relaxed,steady yourself
+relaxed,The economy stabilized
+relaxed,After the fight both men need to cool off.
+relaxed,It took a while after the baby was born for things to settle down again.
+relaxed,The people turned against the President when he stole the election
+relaxed,The patient must be sedated before the operation
+relaxed,the medicine affects my heart rate
+relaxed,spoke in a calm voice
+relaxed,remained calm throughout the uproar
+relaxed,he remained serene in the midst of turbulence
+relaxed,a serene expression on her face
+relaxed,she became more tranquil
+relaxed,tranquil life in the country
+relaxed,calm seas
+relaxed,a mellow conversation
+relaxed,a ribbon of sand between the angry sea and the placid bay
+relaxed,the quiet waters of a lagoon
+relaxed,a lake of tranquil blue water reflecting a tranquil blue sky
+relaxed,a smooth channel crossing
+relaxed,scarcely a ripple on the still water
+relaxed,unruffled water
+relaxed,spoke in a calm voice
+relaxed,remained calm throughout the uproar
+relaxed,he remained serene in the midst of turbulence
+relaxed,a serene expression on her face
+relaxed,she became more tranquil
+relaxed,tranquil life in the country
+relaxed,an ability to interest casual students
+relaxed,showed a casual disregard for cold weather
+relaxed,an utterly insouciant financial policy
+relaxed,an elegantly insouciant manner
+relaxed,drove his car with nonchalant abandon
+relaxed,was polite in a teasing nonchalant manner
+relaxed,a casual remark
+relaxed,information collected by casual methods and in their spare time
+relaxed,casual clothes
+relaxed,everyday clothes
+relaxed,seek help from casual passers-by
+relaxed,a casual meeting
+relaxed,a chance occurrence
+relaxed,a casual (or cursory) inspection failed to reveal the house's structural flaws
+relaxed,a passing glance
+relaxed,perfunctory courtesy
+relaxed,casual employment
+relaxed,a casual correspondence with a former teacher
+relaxed,an occasional worker
+relaxed,a broken back is nothing to be casual about
+relaxed,using their Christian names in a casual way
+relaxed,lectured in a free-and-easy style
+relaxed,a difficult feat performed with casual mastery
+relaxed,careless grace
+sad,growing more melancholy every hour
+sad,her melancholic smile
+sad,we acquainted him with the melancholy truth
+sad,solemn and mournful music
+sad,a suit of somber black
+sad,a somber mood
+sad,unhappy over her departure
+sad,unhappy with her raise
+sad,after the argument they lapsed into an unhappy silence
+sad,had an unhappy time at school
+sad,the unhappy (or sad) news
+sad,he looks so sad
+sad,the unhappy truth
+sad,infelicitous circumstances
+sad,unhappy caravans straggling afoot through swamps and canebrakes"- American Guide Series
+sad,feeling sad because his dog had died
+sad,Better by far that you should forget and smile / Than that you should remember and be sad"- Christina Rossetti
+sad,sad news
+sad,she doesn't like sad movies
+sad,it was a very sad story
+sad,my finances were in a deplorable state
+sad,a lamentable decision
+sad,her clothes were in sad shape
+sad,a sorry state of affairs
+sad,a blue day
+sad,the dark days of the war
+sad,a week of rainy depressing weather
+sad,a disconsolate winter landscape
+sad,the first dismal dispiriting days of November
+sad,a dark gloomy day
+sad,grim rainy weather
+sad,atrocious taste
+sad,abominable workmanship
+sad,an awful voice
+sad,dreadful manners
+sad,a painful performance
+sad,terrible handwriting
+sad,an unspeakable odor came sweeping into the room
+sad,the awful war
+sad,an awful risk
+sad,dire news
+sad,a career or vengeance so direful that London was shocked
+sad,the dread presence of the headmaster
+sad,polio is no longer the dreaded disease it once was
+sad,a dreadful storm
+sad,a fearful howling
+sad,horrendous explosions shook the city
+sad,a terrible curse
+sad,in a nasty mood
+sad,a nasty accident
+sad,a nasty shock
+sad,a nasty smell
+sad,a nasty trick to pull
+sad,Will he say nasty things at my funeral?"- Ezra Pound
+sad,awed by the silence
+sad,awful worshippers with bowed heads
+sad,in a frightful hurry
+sad,spent a frightful amount of money
+sad,New York is an amazing city
+sad,the Grand Canyon is an awe-inspiring sight
+sad,the awesome complexity of the universe
+sad,terribly interesting
+sad,I'm awful sorry
+sad,he felt depressed and miserable
+sad,a message of hope for suffering humanity
+sad,wretched prisoners huddled in stinking cages
+sad,a hapless victim
+sad,miserable victims of war
+sad,the shabby room struck her as extraordinarily pathetic"- Galsworthy
+sad,piteous appeals for help
+sad,pitiable homeless children
+sad,a pitiful fate
+sad,Oh you poor thing
+sad,his poor distorted limbs
+sad,a wretched life
+sad,abject cowardice
+sad,a low stunt to pull
+sad,a low-down sneak
+sad,his miserable treatment of his family
+sad,You miserable skunk!
+sad,a scummy rabble
+sad,a scurvy trick
+sad,deplorable housing conditions in the inner city
+sad,woeful treatment of the accused
+sad,woeful errors of judgment
+sad,a wet miserable weekend
+sad,spent a wretched night on the floor
+sad,a measly tip
+sad,the company donated a miserable $100 for flood relief
+sad,a paltry wage
+sad,almost depleted his miserable store of dried beans
+sad,the child's doleful expression
+sad,stared with mournful eyes
+sad,mournful news
+sad,sorrowful widows
+sad,a sorrowful tale of death and despair
+sad,sorrowful news
+sad,even in laughter the heart is sorrowful"- Proverbs 14:13
+excited,The men were thrilled by a loud whistle blow
+excited,stimulate my appetite
+excited,excite the audience
+excited,stir emotions
+excited,he was thrilled by the speed and the roar of the engine
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,His hands were trembling when he signed the document
+excited,The children were thrilled at the prospect of going to the movies
+excited,He was inebriated by his phenomenal success
+excited,Music can uplift your spirits
+excited,The news electrified us
+excited,The speaker charged up the crowd with his inflammatory remarks
+excited,fill a container
+excited,fill the child with pride
+excited,electrify an appliance
+excited,Adapt our native cuisine to the available food resources of the new country
+excited,These colors please the senses
+excited,a pleasing sensation
+excited,he delights in his granddaughter
+excited,These colors please the senses
+excited,a pleasing sensation
+excited,The book stimulated her imagination
+excited,This play stimulates
+excited,Will the new rules affect me?
+excited,The ads induced me to buy a VCR
+excited,My children finally got me to buy a computer
+excited,My wife made me buy a new sofa
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,arouse pity
+excited,raise a smile
+excited,evoke sympathy
+excited,Coffee and tea stimulate me
+excited,This herbal infusion doesn't stimulate
+excited,the medicine affects my heart rate
+excited,the infection precipitated a high fever and allergic reactions
+excited,The scientists set up a shock wave
+excited,stimulate my appetite
+excited,excite the audience
+excited,stir emotions
+excited,She sensitized me with respect to gender differences in this traditional male-dominated society
+excited,My tongue became sensitized to good wine
+excited,Fischer challenged Spassky to a match
+excited,These paintings exalt the imagination
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,animated cartoons
+excited,The advent of the automobile may have altered the growth pattern of the city
+excited,The discussion has changed my thinking about the issue
+excited,let's liven up this room a bit
+excited,Coffee and tea stimulate me
+excited,This herbal infusion doesn't stimulate
+excited,A hot soup will revive me
+excited,This will renovate my spirits
+excited,This treatment repaired my health
+excited,Coffee and tea stimulate me
+excited,This herbal infusion doesn't stimulate
+excited,an animated and expressive face
+excited,animated conversation
+excited,became very animated when he heard the good news
+excited,an animated cartoon
+excited,animated puppets
+excited,arouse pity
+excited,raise a smile
+excited,evoke sympathy
+excited,make a mess in one's office
+excited,create a furor
+excited,She woke up to the sound of the alarm clock
+excited,We turned from Socialism to Capitalism
+excited,The people turned against the President when he stole the election
+excited,raise the specter of unemployment
+excited,he conjured wild birds in the air
+excited,call down the spirits from the mountain
+excited,make a mess in one's office
+excited,create a furor
+excited,Coffee and tea stimulate me
+excited,This herbal infusion doesn't stimulate
+excited,the medicine affects my heart rate
+excited,He was roused by the drunken men in the street
+excited,Please wake me at 6 AM.
+excited,The advent of the automobile may have altered the growth pattern of the city
+excited,The discussion has changed my thinking about the issue
+excited,He moved his hand slightly to the right
+excited,This movie usually arouses the male audience
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,the aroused opposition
+excited,all wound up for a fight
+excited,feeling horny
+excited,his face all ablaze with excitement"- Bram Stoker
+excited,he was aflame with desire
+excited,he would become emotional over nothing at all
+excited,she was worked up about all the noise
+excited,arouse pity
+excited,raise a smile
+excited,evoke sympathy
+excited,The book stimulated her imagination
+excited,This play stimulates
+excited,Will the new rules affect me?
+excited,stimulate my appetite
+excited,excite the audience
+excited,stir emotions
+excited,She sensitized me with respect to gender differences in this traditional male-dominated society
+excited,My tongue became sensitized to good wine
+excited,The speaker charged up the crowd with his inflammatory remarks
+excited,This book upset me
+excited,A troubling thought
+excited,This movie usually arouses the male audience
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,These stories shook the community
+excited,the civil war shook the country
+excited,arouse pity
+excited,raise a smile
+excited,evoke sympathy
+excited,excite the atoms
+excited,The advent of the automobile may have altered the growth pattern of the city
+excited,The discussion has changed my thinking about the issue
+excited,excite the neurons
+excited,The advent of the automobile may have altered the growth pattern of the city
+excited,The discussion has changed my thinking about the issue
+excited,he would become emotional over nothing at all
+excited,she was worked up about all the noise
+excited,a crowd of delirious baseball fans
+excited,something frantic in their gaiety
+excited,a mad whirl of pleasure
+happy,seemed untroubled by doubts of any kind
+happy,untroubled sleep
+happy,a kind untroubled face
+happy,he was secure that nothing will be held against him
+happy,untroubled times
+happy,her cheerful nature
+happy,a cheerful greeting
+happy,a cheerful room
+happy,as cheerful as anyone confined to a hospital bed could be
+happy,These colors please the senses
+happy,a pleasing sensation
+happy,he delights in his granddaughter
+happy,These colors please the senses
+happy,a pleasing sensation
+happy,he planned a party to celebrate Bastille Day
+happy,After we relaxed we just kidded around
+happy,The children teased the new teacher
+happy,Don't ride me so hard over my failure
+happy,His fellow workers razzed him when he wore a jacket and tie
+happy,when hearts were young and gay
+happy,the jolly crowd at the reunion
+happy,jolly old Saint Nick
+happy,a jovial old gentleman
+happy,have a merry Christmas
+happy,peals of merry laughter
+happy,a mirthful laugh
+happy,pretty big
+happy,pretty bad
+happy,jolly decent of him
+happy,the shoes are priced reasonably
+happy,he is fairly clever with computers
+happy,he emptied the contents of his pockets
+happy,the two groups were similar in content
+happy,the gas tank has a capacity of 12 gallons
+happy,the gas expanded to twice its original volume
+happy,he relaxed in sleepy contentedness
+happy,they could read to their heart's content
+happy,torn jeans received no acceptance at the country club
+happy,a moving picture of a train is more dramatic than a still picture of the same subject
+happy,He contented himself with one glass of beer per day
+happy,I am contented
+happy,a contented smile
+happy,a lively discussion
+happy,lively and attractive parents
+happy,a lively party
+happy,a racy literary style
+happy,a brisk walk in the park
+happy,a lively gait
+happy,a merry chase
+happy,traveling at a rattling rate
+happy,a snappy pace
+happy,a spanking breeze
+happy,clean bouncy hair
+happy,a lively tennis ball
+happy,as resilient as seasoned hickory
+happy,springy turf
+happy,a lively period in history
+happy,a dynamic full of life woman
+happy,a vital and charismatic leader
+happy,this whole lively world
+happy,when hearts were young and gay
+happy,the jolly crowd at the reunion
+happy,jolly old Saint Nick
+happy,a jovial old gentleman
+happy,have a merry Christmas
+happy,peals of merry laughter
+happy,a mirthful laugh
+happy,a festive (or festal) occasion
+happy,gay and exciting night life
+happy,a merry evening
+happy,a brisk walk in the park
+happy,a lively gait
+happy,a merry chase
+happy,traveling at a rattling rate
+happy,a snappy pace
+happy,a spanking breeze
+happy,the town was finally on the upbeat after our recent troubles
+happy,the piece has a fast rhythm
+happy,the conductor set the beat
+happy,a cheery hello
+happy,a gay sunny room
+happy,a sunny smile
+happy,These colors please the senses
+happy,a pleasing sensation
+happy,he could do many things if he pleased
+happy,Do you care to try this dish?
+happy,Would you like to come along to the movies?
+happy,The waiters around her aim to please
+happy,proud of their child
+happy,glad you are here
+happy,glad that they succeeded
+happy,gave a glad shout
+happy,a glad smile
+happy,heard the glad news
+happy,a glad occasion
+happy,glad to help
+happy,glad of the fire's warmth
+happy,a beaming smile
+happy,a glad May morning
+happy,a happy smile
+happy,spent many happy days on the beach
+happy,a happy marriage
+happy,a felicitous life
+happy,a happy outcome
+happy,glad to help
+happy,a happy turn of phrase
+happy,a few well-chosen words

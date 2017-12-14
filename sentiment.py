@@ -59,7 +59,9 @@ def train_gs_classifier():
     }
     gs_clf = GridSearchCV(sentiment_clf_svm, parameters, n_jobs=-1)
 
-    sentiment_data = pd.read_csv('data/sentiment_data.csv', encoding='ISO-8859-1')
+    #sentiment_data = pd.read_csv('data/sentiment_data.csv', encoding='ISO-8859-1')
+    sentiment_data = pd.read_csv('data/sentiment_tagged_sentences.csv')
+
     sentiment_data = shuffle(sentiment_data)
     x = sentiment_data.drop('Sentiment', axis=1)
     y = sentiment_data[['Sentiment']]
@@ -77,3 +79,31 @@ def train_gs_classifier():
 np.random.seed(11)
 train_gs_classifier()
 #train_sentiment_clfs()
+
+
+# from sklearn.decomposition import PCA
+# import matplotlib.pyplot as plt
+
+# sentiment_data = pd.read_csv('data/sentiment_data.csv', encoding='ISO-8859-1')
+# sentiment_data = shuffle(sentiment_data)
+# x = sentiment_data.drop('Sentiment', axis=1)
+# y = sentiment_data[['Sentiment']]
+# X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.10)
+
+# pca = PCA(n_components=8).fit(X_train)
+# X = pca.transform(X_train)
+
+# # Generate grid along first two principal components
+# multiples = np.arange(-2, 2, 0.1)
+# # steps along first component
+# first = multiples[:, np.newaxis] * pca.components_[0, :]
+# # steps along second component
+# second = multiples[:, np.newaxis] * pca.components_[1, :]
+# # combine
+# grid = first[np.newaxis, :, :] + second[:, np.newaxis, :]
+# flat_grid = grid.reshape(-1, x.shape[1])
+
+# plt.tight_layout()
+# plt.figure(figsize=(12, 5))
+
+# plt.show()
