@@ -2,7 +2,7 @@
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.externals import joblib
 import time, random
-from get_song_data import *
+from get_song_data import get_playlist
 
 # def leave():
 # 	print 'Invalid input...quitting'
@@ -55,10 +55,10 @@ def get_user():
 
 def main():
 	# call pickle model on input
-	clf = joblib.load('svm_sentiment_clf.pkl')
+	clf = joblib.load('models/svm_sentiment_clf.pkl')
 	emotion = get_emotion(clf)
-	if emotion == 'relaxed':
-		emotion = 'chill'
+	# if emotion == 'relaxed':
+	# 	emotion = 'chill'
 	#get_user()
 	get_playlist(emotion)
 

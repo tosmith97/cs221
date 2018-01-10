@@ -81,13 +81,15 @@ def learn_love_hate_model(love_pickle, hate_pickle):
 
     tot_train_df = pd.concat([love_train, hate_train])
 
+    tot_train_df.to_csv('data/taste_data.csv')
+
     x = tot_train_df.drop('Love', axis=1)
     y = tot_train_df[['Love']]
 
     lr = LogisticRegression()
     lr.fit(x, y.values.ravel())
-    # with open('love_hate_model.pickle', 'wb') as f:
-    #     pickle.dump(lr, f)
+    with open('models/love_hate_model.pickle', 'wb') as f:
+        pickle.dump(lr, f)
     print lr.score(x, y)
 
 
@@ -106,13 +108,15 @@ def learn_emotion_model(happy_pickle, sad_pickle, excited_pickle, chill_pickle):
 
     tot_train_df = pd.concat([happy_df, sad_df, excited_df, chill_df])
 
+    tot_train_df.to_csv('data/emotion_data.csv')
+
     x = tot_train_df.drop('Emotion', axis=1)
     y = tot_train_df[['Emotion']]
 
     lr = LogisticRegression()
     lr.fit(x, y.values.ravel())
-    # with open('emotion_model.pickle', 'wb') as f:
-    #     pickle.dump(lr, f)
+    with open('models/emotion_model.pickle', 'wb') as f:
+        pickle.dump(lr, f)
     print lr.score(x, y)
 
 
@@ -130,16 +134,16 @@ def get_songIDs_for_emotion(emotion):
     simple_all_songs_df = shuffle(simple_all_songs_df)
     orig_all_songs = shuffle(orig_all_songs)
 
-    love_hate_model = pickle.load(open('love_hate_model.pickle', 'rb'))
+    love_hate_model = pickle.load(open('models/love_hate_model.pickle', 'rb'))
     # NN - love_hate_model = load_model('hate_love_nn.model')
     
-    emotion_model = pickle.load(open('emotion_model.pickle', 'rb'))
+    emotion_model = pickle.load(open('models/emotion_model.pickle', 'rb'))
     NUM_SONGS = 5
     ids = []
     emotion_idx = Emotion[emotion].value
     for index, row in simple_all_songs_df.iterrows():
         # see if it's certain emotion
-        emot_prob = emotion_model.predict_proba(row)
+        emot_prob = emotion_model.predict_proba(row.values.reshape(1,-1))
 
         # this might break in future
         emot_prob = emot_prob.reshape((-1,1))
@@ -148,7 +152,7 @@ def get_songIDs_for_emotion(emotion):
             # print emot_prob
             # see if we like it 
             #print love_hate_model.predict(np.reshape(row.values, (1 ,14)))
-            if love_hate_model.predict(row) == 1:
+            if love_hate_model.predict(row.values.reshape(1,-1)) == 1:
                 tempo = simple_all_songs_df.iloc[index]['tempo']
                 acousticness = simple_all_songs_df.iloc[index]['acousticness']
                 fitted_row = orig_all_songs.loc[(orig_all_songs['tempo'] == tempo) & (orig_all_songs['acousticness'] == acousticness)]
@@ -166,8 +170,7 @@ def print_playlist(emotion, playlist):
     for artist, song_name in playlist:
         print song_name, ' by ', artist
 
-def get_playlist():
-    emotion = sys.argv[-1] # HAPPY, SAD, EXCITED, CHILL
+def get_playlist(emotion):
     ids = get_songIDs_for_emotion(emotion.upper())
     playlist = get_songs_from_ids(sp, ids)
     print_playlist(emotion, playlist)# for all songs
@@ -188,6 +191,6 @@ sp = setup_spotipy()
 # get_feats_for_song_in_playlist(sp, '123640263', config.LIKE_PLAYLIST_ID, 'like_feats.pickle')
 # get_feats_for_song_in_playlist(sp, '123640263', config.DISLIKE_PLAYLIST_ID, 'hate_feats.pickle')
 
-learn_love_hate_model('data/song_features/love_feats.pickle', 'data/song_features/hate_feats.pickle')
-learn_emotion_model('data/song_features/happy_feats.pickle', 'data/song_features/sad_feats.pickle', 'data/song_features/excited_feats.pickle', 'data/song_features/chill_feats.pickle')
+# learn_love_hate_model('data/song_features/love_feats.pickle', 'data/song_features/hate_feats.pickle')
+# learn_emotion_model('data/song_features/happy_feats.pickle', 'data/song_features/sad_feats.pickle', 'data/song_features/excited_feats.pickle', 'data/song_features/chill_feats.pickle')
 

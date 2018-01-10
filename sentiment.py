@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 import numpy as np
-from util import get_emotion_data
+from util import compute_confusion_matrix 
 
 from sklearn import ensemble
 from sklearn.base import TransformerMixin
@@ -68,17 +68,23 @@ def train_gs_classifier():
 
     X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.10)
 
-    gs_clf.fit(x.Text, y.values.ravel())
+    gs_clf.fit(X_train.Text, y_train.values.ravel())
 
     for param_name in sorted(parameters.keys()):
         print("%s: %r" % (param_name, gs_clf.best_params_[param_name]))
 
     print gs_clf.best_score_     
-    joblib.dump(gs_clf.best_estimator_, 'models/svm_sentiment_clf.pkl') 
+
+    best = gs_clf.best_estimator_
+    predictions = best.predict(X_test.Text)
+    compute_confusion_matrix(y_test, predictions, ['sad', 'happy', 'relaxed', 'excited'], 'Confusion Matrix for Sentiment SVM')
+
+    # joblib.dump(gs_clf.best_estimator_, 'models/svm_sentiment_clf.pkl') 
+    
 
 np.random.seed(11)
-train_gs_classifier()
-#train_sentiment_clfs()
+#train_gs_classifier()
+train_sentiment_clfs()
 
 
 # from sklearn.decomposition import PCA
